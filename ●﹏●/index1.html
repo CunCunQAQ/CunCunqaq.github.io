@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>村长の屑站</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: gray;
+        }
+
+        
+        
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+
+        #loading {
+            width: 100%;height: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #zhuye {
+            /*主页设计*/
+            background-color: none;
+            background-repeat:no-repeat;
+            background-position: top center;
+            background-size: cover;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            background-image:url(img/back.png);
+        }
+
+
+
+
+        #zhuye .nav {
+            /*顶部导航栏*/
+            width: 100%; height: 75px; line-height: 75px;
+            position: fixed;
+            z-index: 8000;
+            transition: 1s ease-in-out;
+        }
+
+        #zhuye .nav:hover {
+            background-color: rgba(233, 233, 233, 0.9);
+            transition: 1s ease-in-out;
+        }
+
+        #jieshao {/*头像之类的*/
+            width: 40%;;
+            position: absolute; left: 30%; top: calc(20% - 150px);
+            opacity: 0;
+            animation: jieshao 2s forwards;
+
+        }
+
+        .first-ul li{
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .first-ul li,.first-ul a,.huadong li,.huadong a{
+            list-style-type: none;
+            color: #999999;
+        }
+        .first-ul {
+            display: flex;
+            width: 25%;height: 100%;
+            line-height: 75px;
+            position: absolute;top: 0;left: 55%;/*导航栏定位*/
+            overflow: hidden;
+        }
+
+        .first-li {
+            margin: 0 auto;
+            width: 64px;
+        }
+
+        .first-li ul {
+            width: 70px;
+            display: inline-block;
+            line-height: 35px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 15px;
+            opacity: 0;
+            white-space: nowrap;/*文字不换行*/
+        }
+
+        .first-li:hover > ul {
+            opacity: 1;
+            transform: translateY(-10px);
+            transition: all 0.5s ease-in-out;
+        }
+
+        .first-ul:hover {
+            overflow: visible;/*防止未划入导航栏就出现标签*/
+        }
+
+        .touxiang {
+            width: 130px; height: 130px;
+            border-radius: 65px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 0 1px 5px rgba(49, 60, 73, 0.8);/*外框*/
+        }
+
+        @keyframes jieshao {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(150px);
+            }
+        }
+
+        .header-info {
+            width: 60%;
+            border-radius: 20px;
+            background-color: rgba(83, 202, 238, 0.8);
+            line-height: 20px;
+            margin: 25px auto 0;
+            padding: 10px 30px;
+            text-align: center;
+        }/*标语栏*/
+
+        /*滑动栏开始*/
+        .huadong,.huadong ul {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .huadong {
+            height: 75px;
+            border-radius: 50px;
+            padding: 0 15px;
+            position: relative;
+        }
+
+        .huadong input {
+            cursor: pointer;
+            width: 45px; height: 45px;
+            opacity: 0;
+        }
+
+        .huadong img {
+            width: 45px;
+            position: absolute;left: 15px;top: 15px;
+            pointer-events: none;
+        }
+
+        .huadong ul {
+            white-space: nowrap;/*让文字不换行显示，解决盒子被撑大*/
+            width: 0;
+            overflow: hidden;
+            transition: all 500ms ease-in-out;
+        }
+
+        .huadong ul li {
+            margin: 0 15px;
+        }
+
+        .huadong ul li a {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .huadong input:checked ~ ul {/*：checked是当选中的复选框的时候 ~ 是兄弟选择器 查找同一级的ul*/
+            width: 350px;
+            transition: all 500ms ease-in-out;
+        }
+
+        /*滑动栏结束*/
+
+        /*li，a字体变色*/
+        .nav li,.nav a:hover {
+            color: rgb(33, 154, 211);
+        }
+
+        .weixing {
+            position: absolute; top: 30%; left: 50%;
+            width: 30%;
+            padding: 30px;
+            pointer-events: none;
+        }/*卫星*/
+
+        .video {
+            opacity: 0;
+            animation: video1  5s forwards;
+
+        }
+
+        @keyframes video1 {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #dierye {
+            width: 100%; height: 100%;
+            background:  linear-gradient(#c99999,#615666);
+        }
+    </style>
+</head>
+
+<body>
+    <!--<div id="loading">
+
+    </div>-->
+    <div id="zhuye">
+        <header class="nav">
+            <div class="huadong">
+                <input type="checkbox">
+                <img src="img/电子名片.png">
+                <ul>
+                    <li><a href="https://space.bilibili.com/616697512?from=search&seid=8831501647458424127&spm_id_from=333.337.0.0">Bilibili</a></li>
+                    <li><a href="https://github.com/CunCunqaq">Github</a></li>
+                    <li><a href="https://user.qzone.qq.com/3180260438">QQ</a></li>
+                    <li><a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=3180260438@qq.com">Email</a></li>
+                </ul>
+            </div>
+            <ul class="first-ul">
+                <li class="first-li"><a href="#">Home</a></li>
+                <li class="first-li"><a href="#">Archive</a>
+                    <ul>
+                        <li><a href="文章.html">文章</a></li>
+                        <li><a href="#">视频</a></li>
+                        <li><a href="#">日常</a></li>
+                    </ul>
+                </li>
+                <li class="first-li"><a href="#">Link</a>
+                    <ul>
+                        <li><a href="#">灵感来源</a></li>
+                        <li><a href="#">留言板</a></li>
+                    </ul>
+                </li>
+                <li class="first-li"><a href="#">About</a>
+                    <ul>
+                        <li><a href="#">我？</a></li>
+                        <li><a href="#">源码</a></li>
+                        <li><a href="#">联系我吧</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <!--<video class="video" autoplay="autoplay" loop="loop" src="img/origin.mp4" muted=""><source src="img/origin.mp4" type="video/mp4"></video>-->
+        <div id="jieshao">
+            <div class="touxiang">
+                <a href="#">
+                    <img src="img/touxing.jpg" width="100%">
+                </a>
+            </div>
+            <div class="header-info"><!--标语框-->
+                <p>
+                    即使身处黑暗，也总有人仰望星空!
+                </p>
+                <p>
+                    Mg+ZnCl2=MgCl2+Zn
+                </p>
+            </div>
+            
+        </div>
+        
+        <div class="weixing">
+            <img src="" width="100%">
+        </div>
+    </div>
+
+    <div id="dierye">
+        <section>
+            <article>
+
+            </article>
+            <div>
+
+            </div>
+        </section>
+    </div>
+    <div 
+    style="height: 80px; line-height: 40px; text-align: center; font-weight: 800;">
+        <p>
+            Made by @CunCunqaq
+        </p>
+        <p>doge</p>
+    </div>
+</body>
+<script>
+    alert("下次丕定")
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mirai-mamori/live2d-widget@latest/autoload.js"></script>
+</html>
