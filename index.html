@@ -4,272 +4,78 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>村长の屑站</title>
-    <style>
-        body {
-            height: 100vh;
-            background-color: gray;
-        }
-
-        
-        
-        * {
-            margin: 0;
-            padding: 0;
-            text-decoration: none;
-        }
-
-        #loading {
-            width: 100%;height: 100%;
-            background-color: black;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-        }
-
-        #zhuye {
-            /*主页设计*/
-            background-color: none;
-            background-repeat:no-repeat;
-            background-position: top center;
-            background-size: cover;
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            background-image:url(img/back.png);
-        }
+    <title>红心向未来，奋进新征程</title>
 
 
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="card.css" type="text/css">
+    <link rel="stylesheet" href="slideshow.css" type="text/css">
 
+    <script async="" src="slideshow.js"></script>
 
-        #zhuye .nav {
-            /*顶部导航栏*/
-            width: 100%; height: 75px; line-height: 75px;
-            position: fixed;
-            z-index: 8000;
-            transition: 1s ease-in-out;
-        }
-
-        #zhuye .nav:hover {
-            background-color: rgba(233, 233, 233, 0.9);
-            transition: 1s ease-in-out;
-        }
-
-        #jieshao {/*头像之类的*/
-            width: 40%;;
-            position: absolute; left: 30%; top: calc(20% - 150px);
-            opacity: 0;
-            animation: jieshao 2s forwards;
-
-        }
-
-        .first-ul li{
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .first-ul li,.first-ul a,.huadong li,.huadong a{
-            list-style-type: none;
-            color: #999999;
-        }
-        .first-ul {
-            display: flex;
-            width: 25%;height: 100%;
-            line-height: 75px;
-            position: absolute;top: 0;left: 55%;/*导航栏定位*/
-            overflow: hidden;
-        }
-
-        .first-li {
-            margin: 0 auto;
-            width: 64px;
-        }
-
-        .first-li ul {
-            width: 70px;
-            display: inline-block;
-            line-height: 35px;
-            padding: 10px;
-            background-color: white;
-            border-radius: 15px;
-            opacity: 0;
-            white-space: nowrap;/*文字不换行*/
-        }
-
-        .first-li:hover > ul {
-            opacity: 1;
-            transform: translateY(-10px);
-            transition: all 0.5s ease-in-out;
-        }
-
-        .first-ul:hover {
-            overflow: visible;/*防止未划入导航栏就出现标签*/
-        }
-
-        .touxiang {
-            width: 130px; height: 130px;
-            border-radius: 65px;
-            overflow: hidden;
-            margin: 0 auto;
-            box-shadow: 0 0 1px 5px rgba(49, 60, 73, 0.8);/*外框*/
-        }
-
-        @keyframes jieshao {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(150px);
-            }
-        }
-
-        .header-info {
-            width: 60%;
-            border-radius: 20px;
-            background-color: rgba(83, 202, 238, 0.8);
-            line-height: 20px;
-            margin: 25px auto 0;
-            padding: 10px 30px;
-            text-align: center;
-        }/*标语栏*/
-
-        /*滑动栏开始*/
-        .huadong,.huadong ul {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .huadong {
-            height: 75px;
-            border-radius: 50px;
-            padding: 0 15px;
-            position: relative;
-        }
-
-        .huadong input {
-            cursor: pointer;
-            width: 45px; height: 45px;
-            opacity: 0;
-        }
-
-        .huadong img {
-            width: 45px;
-            position: absolute;left: 15px;top: 15px;
-            pointer-events: none;
-        }
-
-        .huadong ul {
-            white-space: nowrap;/*让文字不换行显示，解决盒子被撑大*/
-            width: 0;
-            overflow: hidden;
-            transition: all 500ms ease-in-out;
-        }
-
-        .huadong ul li {
-            margin: 0 15px;
-        }
-
-        .huadong ul li a {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .huadong input:checked ~ ul {/*：checked是当选中的复选框的时候 ~ 是兄弟选择器 查找同一级的ul*/
-            width: 350px;
-            transition: all 500ms ease-in-out;
-        }
-
-        /*滑动栏结束*/
-
-        /*li，a字体变色*/
-        .nav li,.nav a:hover {
-            color: rgb(33, 154, 211);
-        }
-
-        .weixing {
-            position: absolute; top: 30%; left: 50%;
-            width: 30%;
-            padding: 30px;
-            pointer-events: none;
-        }/*卫星*/
-
-        .video {
-            opacity: 0;
-            animation: video1  5s forwards;
-
-        }
-
-        @keyframes video1 {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        #dierye {
-            width: 100%; height: 100%;
-            background:  linear-gradient(#c99999,#615666);
-        }
-    </style>
 </head>
 
 <body>
     <!--<div id="loading">
 
     </div>-->
-    <div id="zhuye">
-        <header class="nav">
-            <div class="huadong">
-                <input type="checkbox">
-                <img src="img/电子名片.png">
-                <ul>
-                    <li><a href="https://space.bilibili.com/616697512?from=search&seid=8831501647458424127&spm_id_from=333.337.0.0">Bilibili</a></li>
-                    <li><a href="https://github.com/CunCunqaq">Github</a></li>
-                    <li><a href="https://user.qzone.qq.com/3180260438">QQ</a></li>
-                    <li><a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=3180260438@qq.com">Email</a></li>
-                </ul>
-            </div>
-            <ul class="first-ul">
-                <li class="first-li"><a href="#">Home</a></li>
-                <li class="first-li"><a href="#">Archive</a>
-                    <ul>
-                        <li><a href="index2.html">文章</a></li>
-                        <li><a href="#">视频</a></li>
-                        <li><a href="#">日常</a></li>
-                    </ul>
-                </li>
-                <li class="first-li"><a href="#">Link</a>
-                    <ul>
-                        <li><a href="#">灵感来源</a></li>
-                        <li><a href="#">留言板</a></li>
-                    </ul>
-                </li>
-                <li class="first-li"><a href="#">About</a>
-                    <ul>
-                        <li><a href="#">我？</a></li>
-                        <li><a href="#">源码</a></li>
-                        <li><a href="#">联系我吧</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
+
+    <header class="nav">
+      <div class="huadong">
+          <input type="checkbox">
+          <img src="img/电子名片.png">
+          <ul>
+              <li><a href="https://space.bilibili.com/616697512?from=search&seid=8831501647458424127&spm_id_from=333.337.0.0">Bilibili</a></li>
+              <li><a href="https://github.com/CunCunqaq">Github</a></li>
+              <li><a href="https://user.qzone.qq.com/3180260438">QQ</a></li>
+              <li><a href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=3180260438@qq.com">Email</a></li>
+          </ul>
+      </div>
+      <ul class="first-ul">
+          <li class="first-li"><a href="#">Home</a></li>
+          <li class="first-li"><a href="#">Archive</a>
+              <ul>
+                  <li><a href="index2.html">文章</a></li>
+                  <li><a href="#">视频</a></li>
+                  <li><a href="#">日常</a></li>
+              </ul>
+          </li>
+          <li class="first-li"><a href="#">Link</a>
+              <ul>
+                  <li><a href="#">灵感来源</a></li>
+                  <li><a href="#">留言板</a></li>
+              </ul>
+          </li>
+          <li class="first-li"><a href="#">About</a>
+              <ul>
+                  <li><a href="#">我？</a></li>
+                  <li><a href="#">源码</a></li>
+                  <li><a href="#">联系我吧</a></li>
+              </ul>
+          </li>
+      </ul>
+  </header>
+
+<div id="zhuye">
+
         <!--<video class="video" autoplay="autoplay" loop="loop" src="img/origin.mp4" muted=""><source src="img/origin.mp4" type="video/mp4"></video>-->
+        <div class="img-ti1">
+          <img src="img/ti1.png" width="100%">
+        </div>
+        <div class="img-ti2">
+          <img src="img/ti2.png" width="100%">
+        </div>
+        <!--
         <div id="jieshao">
             <div class="touxiang">
                 <a href="#">
                     <img src="img/touxing.jpg" width="100%">
                 </a>
             </div>
-            <div class="header-info"><!--标语框-->
+        
+            <div class="header-info">   标语框
                 <p>
-                    即使身处黑暗，也总有人仰望星空!
+                    即使身处黑暗，也总有人仰望星空！
                 </p>
                 <p>
                     Mg+ZnCl2=MgCl2+Zn
@@ -281,28 +87,350 @@
         <div class="weixing">
             <img src="" width="100%">
         </div>
+        -->
     </div>
+
+
+
+    <div class="text">
+      <a>那时候，他们很年轻，怀着赤诚红心，点燃民族的希望</a>
+    </div>
+
+
+
+
+    <!--第一页--><!--图文-->
+    <div id="firstpage">
+
+        <div class="container">
+          <div class="card">
+            <div class="imgBx">
+              <img src="img/maozedong2.jpg">
+            </div>
+            <div class="content">
+              <h2>毛泽东</h2>
+              <p>
+                1921年7月23日，中国共产党第一次全国代表大会在上海召开。那一年，作为13位一大代表之一，毛泽东只有28岁，这也是13位中共一大代表的平均年龄，他们当中30岁以下的有9人。后来改变整个国家面貌的中国共产党，最初就是由这样一些敢做敢为的青年成立的。
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="imgBx">
+              <img src="img/zhouenlai.jpg">
+            </div>
+            <div class="content">
+              <h2>周恩来</h2>
+              <p>
+                1927年5月，29岁的周恩来成为中共中央军事领导人。8月1日凌晨，在周恩来、贺龙、叶挺、朱德、刘伯承等领导下，2.3万余人在南昌打响了武装反抗国民党反动派的第一枪，开创了中国共产党独立领导武装斗争的新纪元。
+              </p>
+            </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="img/quqiubai.jpg">
+                </div>
+                <div class="content">
+                    <h2>瞿秋白</h2>
+                    <p>1925年五卅运动中，为打破帝国主义舆论垄断，26岁的中共党员瞿秋白临危受命，紧急创办了中共第一份公开发行、为工农群众说话的日报《热血日报》。他在发刊词中写道:“外来的强者握有冷的铁，而我们有的只是热的血，然而只要我们的血是热的，将来终会占有冷的铁。</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="imgBx">
+                    <img src="img/xiaminghan.jpg">
+                </div>
+                <div class="content">
+                    <h2>夏明翰</h2>
+                    <p>夏明翰从小生活无忧，但目睹民族危亡的他充满了正义感。1921年，夏明翰加入中国共产党。1928年1月，党组织决定调28岁的夏明翰到湖北省委担任领导工作。3月，由于叛徒出卖，夏明翰不幸被捕，英勇就义。</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="text">
+      <a>现在，我们很年轻，心怀赤诚红心，砥砺前行</a>
+    </div>
+
+
+    <div id="secondpage">
+      <i class="iconfont icon-arrow-up-bold" id="up-btn" onclick="slideToPrev()"></i>
+      <i class="iconfont icon-arrow-down-bold" id="down-btn" onclick="slideToNext()"></i>
+      <div id="slideshow">
+          <div class="slideshow-card">
+              <div class="card-time">
+                  河海大学国旗护卫队
+              </div>
+              <div class="card-title">
+                  朝霞映步履，国旗释担当
+              </div>
+              <div class="card-passage">
+                  <br>
+                  每周一，伴着清晨的第一缕阳光，河海大学国旗护卫队队员们身着礼服军姿站定。当雄壮激昂的国歌声响起时，升旗手全力以赴地挥动手中的旗帜，让那面鲜艳夺目的五星红旗高高飘扬在天际之上，待到国歌唱毕，国旗胜利抵达旗杆之巅，迎风招展。
+                  <br>
+              </div>
+              <p class="card-page-imf">1 / 4</p>
+              <div class="card-image">
+                <a href="#">
+                    <img src="img/guoqi.webp" width="100%">
+                </a>
+              </div>
+          </div>
+
+          <div class="slideshow-card">
+            <div class="card-time">
+                抗疫青年志愿者
+            </div>
+            <div class="card-title">
+                在战疫中书写担当 在奋斗中追逐理想
+            </div>
+            <div class="card-passage">
+                <br>
+                  青春，总会在祖国和人民最需要的地方绽放绚丽之花。过去，有人说他们是娇滴滴的一代；如今，他们成了抗疫一线的主力军。新冠肺炎疫情期间，一大批年轻医护人员勇敢逆行，践行责任、担当和使命；千千万万个“90后”“00后”奋战在工地、社区、工厂以及运输保障等各条战线。广大青年用行动证明，新时代的中国青年是好样的，是堪当大任的！ 
+                <br>
+              </div>
+              <p class="card-page-imf">2 / 4</p>
+            <div class="card-image">
+              <a href="#">
+                  <img src="img/kangyiqingnian.jpeg" width="100%">
+              </a>
+          </div>
+        </div>
+
+
+        <div class="slideshow-card">
+          <div class="card-time">
+              徐枫灿
+          </div>
+          <div class="card-title">
+              无悔青春逐梦蓝天的“空突玫瑰”
+          </div>
+          <div class="card-passage">
+              <br>
+              立志军营报国，矢志强军打赢，携笔从戎，不忘初心。在建军90周年的特殊日子，徐枫灿迈进空军航空大学的校门，光荣成为空军第11批女飞行学员。“掠过连绵起伏的群山、波光粼粼的湖泊……每当我驾机飞行，自豪感都会油然而生。”徐枫灿说，“以青春之我逐梦蓝天，守护祖国大好河山，何其荣幸！我感觉一切付出都值得。”
+              <br>
+            </div>
+            <p class="card-page-imf">3 / 4</p>
+          <div class="card-image">
+            <a href="#">
+                <img src="img/xufengcan.jpg" width="100%">
+            </a>
+          </div>
+      </div>
+
+      
+        <div class="slideshow-card">
+              <div class="card-time">
+                  黄文秀
+              </div>
+              <div class="card-title">
+                  坚定的初心，把一切奉献给党和人民
+              </div>
+              <div class="card-passage">
+                  <br>
+                  她于北京师范大学硕士毕业后主动回到百色革命老区工作，2018年初主动请缨到百坭村任第一书记，工作表现突出。2019年6月16日晚，黄文秀冒着暴雨开车返回工作岗位，途中遭遇山洪，不幸因公牺牲，年仅30岁。黄文秀同志用生命践行了要帮助贫苦群众脱贫的理想抱负。她为家乡的扶贫事业奉献了自己的一切。正如黄文秀同志的父亲所说：“我为有这样的女儿感到欣慰，她为党的工作而牺牲，是党培养了她，她为党的事业作出贡献，我为她骄傲。”
+                  <br>
+                </div>
+              <p class="card-page-imf">4 / 4</p>
+              <div class="card-image">
+                <a href="#">
+                    <img src="img/huangwenxiu.jpg" width="100%">
+                </a>
+              </div>
+          </div>
+
+
+      </div>
+  </div>
+
+
+    <div class="text">
+      <hl>6666666666666</hl>
+    </div>
+
+
 
     <div id="dierye">
-        <section>
-            <article>
-
-            </article>
-            <div>
-
+        <!--第二页-->
+        <div class="wrapper" id="l-container">
+            <div class="inner">
+              <div class="mod clearfix">
+                <div class="col_menu">
+                  <div class="col_menu_head">
+                    <h3 class="col_name" frag="窗口3" portletmode="simpleColumnAnchor">
+                      <span class="col_name_text">
+                        <span class="Column_Anchor">青年大学习</span>
+                      </span>
+                    </h3>
+                    <a class="column-switch" style="display: none;"></a>
+                  </div>
+                  <div class="col_menu_con" frag="面板4">
+                    <div class="col_list" frag="窗口4" portletmode="simpleColumnList">
+        
+        
+                      <ul class="wp_listcolumn list-paddingleft-2">
+        
+                      </ul>
+        
+        
+                    </div>
+                  </div>
+                </div>
+                <div class="col_news">
+                  <div class="col_news_box">
+                    <div class="col_news_head">
+                      <ul class="col_metas clearfix" frag="窗口5" portletmode="simpleColumnAttri">
+        
+                        <li class="col_path"><span class="path_name">当前位置：</span><a href="https://tuanwei.shnu.edu.cn/main.htm"
+                            target="_self">首页</a><span class="possplit">&nbsp;&nbsp;</span><a
+                            href="https://tuanwei.shnu.edu.cn/qndxx/list.htm" target="_self">青年大学习</a></li>
+                        <li class="col_title">
+                          <h2>那时，他们很年轻</h2>
+                        </li>
+        
+                      </ul>
+                    </div>
+                    <div class="col_news_con">
+                      <div class="col_news_list listcon">
+                        <div frag="窗口6" portletmode="simpleList">
+                          <div id="wp_news_w6">
+        
+                            <ul class="news_list list2">
+        
+                              <li class="news n1 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/BqRXtgx-sE-0FmPqBC6Ilw"
+                                    target="_blank" title="青年大学习国庆特辑：我眼中的红色宝藏（下）">青年大学习国庆特辑：我眼中的红色宝藏（下）</a></span>
+                                <span class="news_meta">2024-10-12</span>
+                              </li>
+        
+                              <li class="news n2 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/DySxQUnYDGl6JvoENZAN9w"
+                                    target="_blank" title="青年大学习国庆特辑：我眼中的红色宝藏（上）">青年大学习国庆特辑：我眼中的红色宝藏（上）</a></span>
+                                <span class="news_meta">2024-10-12</span>
+                              </li>
+        
+                              <li class="news n3 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/Scp_QPUITy1xawlW8HAqcQ"
+                                    target="_blank" title="青年大学习：青春为中国式现代化挺膺担当（绿色发展篇）">青年大学习：青春为中国式现代化挺膺担当（绿色发展篇）</a></span>
+                                <span class="news_meta">2024-05-25</span>
+                              </li>
+        
+                              <li class="news n4 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/Xqjrt-dbd2tbfdfBqnTU5g"
+                                    target="_blank" title="青年大学习：青春为中国式现代化挺膺担当（文教体育篇）">青年大学习：青春为中国式现代化挺膺担当（文教体育篇）</a></span>
+                                <span class="news_meta">2024-05-17</span>
+                              </li>
+        
+                              <li class="news n5 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/CcKvUAM6crbT6oFVqrddew"
+                                    target="_blank" title="快来学习！这一期，走进上海">快来学习！这一期，走进上海</a></span>
+                                <span class="news_meta">2024-05-09</span>
+                              </li>
+        
+                              <li class="news n6 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/mB-fV8C49O6OpFx_fS6RGQ"
+                                    target="_blank" title="青年大学习五四特辑：青春接力跑·青春印象">青年大学习五四特辑：青春接力跑·青春印象</a></span>
+                                <span class="news_meta">2024-05-04</span>
+                              </li>
+        
+                              <li class="news n7 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/y5lC6zUm_xxdx-51vS1Zmw"
+                                    target="_blank" title="青年大学习：青春为中国式现代化挺膺担当（乡村振兴篇）">青年大学习：青春为中国式现代化挺膺担当（乡村振兴篇）</a></span>
+                                <span class="news_meta">2024-04-29</span>
+                              </li>
+        
+                              <li class="news n8 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/K5nmBJasbyxWzxwwdzDLUg"
+                                    target="_blank" title="青年大学习：青春为中国式现代化挺膺担当（科技创新篇）">青年大学习：青春为中国式现代化挺膺担当（科技创新篇）</a></span>
+                                <span class="news_meta">2024-04-18</span>
+                              </li>
+        
+                              <li class="news n9 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/KMUl2vS-srTFW7aQpuDRwg"
+                                    target="_blank" title="青年大学习：青春为中国式现代化挺膺担当（经济发展篇）">青年大学习：青春为中国式现代化挺膺担当（经济发展篇）</a></span>
+                                <span class="news_meta">2024-03-26</span>
+                              </li>
+        
+                              <li class="news n10 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/S_nNDbHSuJh3AvuEippeLQ"
+                                    target="_blank" title="青年大学习：挺膺担当（团员和青年主题教育特辑）">青年大学习：挺膺担当（团员和青年主题教育特辑）</a></span>
+                                <span class="news_meta">2023-12-19</span>
+                              </li>
+        
+                              <li class="news n11 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/ucJwO0s4BLU_xzZjKUr4EQ"
+                                    target="_blank" title="青年大学习：强国复兴（团员和青年主题教育特辑）">青年大学习：强国复兴（团员和青年主题教育特辑）</a></span>
+                                <span class="news_meta">2023-11-29</span>
+                              </li>
+        
+                              <li class="news n12 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/zdK0ilgU0nHrcUHKNVf2tQ"
+                                    target="_blank" title="青年大学习：坚强核心（团员和青年主题教育特辑）">青年大学习：坚强核心（团员和青年主题教育特辑）</a></span>
+                                <span class="news_meta">2023-11-22</span>
+                              </li>
+        
+                              <li class="news n13 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/nnsxGAYWBF8lX1bxp9c6Yw"
+                                    target="_blank" title="青年大学习：思想旗帜（团员和青年主题教育特辑）">青年大学习：思想旗帜（团员和青年主题教育特辑）</a></span>
+                                <span class="news_meta">2023-10-25</span>
+                              </li>
+        
+                              <li class="news n14 clearfix">
+                                <span class="news_title"><a href="https://mp.weixin.qq.com/s/RMX-CcikpcsuI6AJzCIi5w"
+                                    target="_blank" title="青年大学习：听党话，跟党走，奋斗在一线">青年大学习：听党话，跟党走，奋斗在一线</a></span>
+                                <span class="news_meta">2023-07-13</span>
+                              </li>
+        
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+          </div>
+        
     </div>
+
+
+
+    <!--第三页-->
+    <div id="thirdpage">
+    </div>
+
+
+
+
+
     <div 
-    style="height: 80px; line-height: 40px; text-align: center; font-weight: 800;">
+    style="height: 40px; line-height: 40px; text-align: center; font-weight: 800;">
         <p>
-            Made by @CunCunqaq
+            Made by @CunCunQAQ
         </p>
-        <p>doge</p>
     </div>
+
+
 </body>
-<script>
+<!--<script>
     alert("下次丕定")
-</script>
+</script>-->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mirai-mamori/live2d-widget@latest/autoload.js"></script>
 </html>
+
+
+<!-- 
+       　  　▃▆█▇▄▖
+　 　 　 ▟◤▖　　　◥█▎
+   　 ◢◤　 ▐　　　 　▐▉
+　 ▗◤　　　▂　▗▖　　▕█▎
+　◤　▗▅▖◥▄　▀◣　　█▊
+▐　▕▎◥▖◣◤　　　　◢██
+█◣　◥▅█▀　　　　▐██◤
+▐█▙▂　　     　◢██◤
+◥██◣　　　　◢▄◤
+ 　　▀██▅▇▀
+
+Ciallo～(∠・ω< )⌒★
+ -->
