@@ -9,6 +9,29 @@
     }
 }
 
+@keyframes welcome {
+    0% {
+        opacity: 0;
+
+    }
+
+    40% {
+        opacity: 0.6;
+        transform: translateY(-300px);
+    }
+
+    80%{
+        opacity: 0.6;
+        transform: translateY(-300px);
+    }
+
+    100%{
+        opacity: 0.6;
+        transform: translateX(-350px);
+    }
+}
+
+
 
 
 body {
@@ -53,10 +76,42 @@ a:hover {
     height: 100%;
     position: relative;
     overflow: hidden;
-    background-image: url(img/mainbackground.jpg);
+    background-image: url(https://s21.ax1x.com/2024/11/14/pAgXtv8.jpg);
     background-size: cover;
     background-attachment: fixed;
 
+}
+
+.welcome{
+    position: absolute;
+    bottom: calc(30% - 300px);
+    left: 1%;
+    width: 280px;
+    height: 80px;
+    background-color: #c5a980;
+    opacity: 0;
+    border-radius: 15px;
+
+    animation: ease-in-out;
+    animation: welcome 7s 1.5s forwards;
+
+}
+
+.welcome a{
+    padding : 10px 0 0 0;
+    width: 100%;
+    font-size: 15px;
+    font-weight: 300;
+    color: #2F2F2F;
+    display: block;
+    text-align: center;
+    
+}
+
+.welcome p{
+    width: 100%;
+    color: rgb(14, 119, 171);
+    text-align: center;
 
 }
 
@@ -66,7 +121,7 @@ a:hover {
     width: 62%;
     top: 30%;
     left: 5%;
-    animation: jieshao 2s forwards;
+    animation: jieshao 3s forwards;
 }
 
 .img-ti2{
@@ -76,7 +131,7 @@ a:hover {
 
     top: 50%;
     left: 30%;
-    animation: jieshao 2s forwards;
+    animation: jieshao 3s forwards;
 }
 
 .nav {
@@ -115,7 +170,7 @@ a:hover {
 }
 
 .first-li ul {
-    width: 70px;
+    width: 80px;
     display: inline-block;
     line-height: 35px;
     padding: 10px;
@@ -140,30 +195,20 @@ a:hover {
 
 
 .text {
-    height: 20%;
+    height: 14%;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
     background-color: rgb(255, 255, 255);
 }
 
+.text img{
+    width: 70%;
+    margin: auto;
+}
 .text a{
     
     color: rgb(255, 140, 0);
-}
-
-#jieshao {/*头像之类的*/
-    width: 40%;;
-    position: absolute; left: 30%; top: calc(20% - 150px);
-    opacity: 0;
-    animation: jieshao 2s forwards;
-
-}
-
-
-.touxiang {
-    width: 130px; height: 130px;
-    border-radius: 65px;
-    overflow: hidden;
-    margin: 0 auto;
-    box-shadow: 0 0 1px 5px rgba(49, 60, 73, 0.8);/*外框*/
 }
 
 
@@ -259,7 +304,7 @@ a:hover {
     background-color: #c79191;
     display:flex;
     justify-content: center;
-    background-image: url(img/nanhuhongchuan.webp);
+    background-image: url(https://s21.ax1x.com/2024/11/15/pAgvzgP.jpg);
     background-size: cover;
     background-attachment: fixed;
 
@@ -276,210 +321,112 @@ a:hover {
     display:flex;
     position: relative;
     justify-content: center;
-    background-image: url(img/qingnian.jpeg);
+    background-image: url(https://s21.ax1x.com/2024/11/15/pAgxCDS.jpg);
     background-size: cover;
     background-attachment: fixed;
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#dierye {
-    width: 100%; height: 200%;
-    background-color: #fff;
-    /**background:  linear-gradient(#c99999,#615666);**/
-}
-
-
-
-
-/**整个定位**/
-.wrapper .inner {
-    width: 1221px;
-    margin: 0 auto;
-}
-
-/**自定义新闻列表_分割线**/
-
-a:hover {
-    color: rgb(33, 154, 211);
-}
-
-
-.news_list li.news {
-    list-style-type: none;
-    line-height: 100px;
-    padding-left: 0px;
-    border-bottom: 1px dashed #ebd4d3;
-}
-
-
-
-.news_list li.news span.news_meta {
-    float: right;
-    margin-left: 2px;
-    color: #9C9C9C;
-    /**padding: 10px 0px**/
-}
-
-/*属性*/
-.news_list li.news .news_time,
-.news_list li.news .news_time span {
-    color: #666;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.col_menu {
-    width: 240px;
-    float: left;
-    margin-right: -240px;
+#thirdpage {
+    width: 100%; height: 95%;
+    background-color: #c79191;
+    display:flex;
     position: relative;
+    justify-content: center;
+    background-color: black;
+    background-image: url(https://s21.ax1x.com/2024/11/15/pAgxSjf.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.col_menu .l-qh {
-    margin-bottom: 10px;
+.t-title{
+    position: absolute;
+    top: 10%;
+    width: 80%;
+    height: 10%;
 }
 
-.col_menu .col_menu_head {
-    background: #ff9900;
+.t-title img{
+    width: 100%;
 }
 
-/**位置栏目背景_____**/
-.col_menu .col_menu_head h3.col_name {
-    font-size: 18px;
-    font-weight: normal;
-    color: #fff;
+
+.board {
+    position: relative;
+    width: 1100px;
+    height: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: calc(10%) 30px 30px 30px;
+    margin-top: calc(13%);
+    border-radius: 20px;
+    overflow: hidden;
+
 }
 
-/**位置栏目字体**/
-.col_menu .col_menu_head h3.col_name .col_name_text {
+.board-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 50%;
+    top : 0;
+    left: 0;
+
+}
+
+.board .p1{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+
+
+}
+
+.board .p2{
+    position: absolute;
+    top: 10%;
+    right: 7%;
+
+
+}
+
+.board .p3{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+
+
+}
+
+.board .p4{
+    position: absolute;
+    bottom: 5%;
+    right: 7%;
+}
+
+
+.board img{
+    border-radius: 15px;
+    height: 200px;
+    width: 400px;
+}
+
+.board a{
     display: block;
-    line-height: 50px;
-    padding: 0px 5px 0px 30px;
-}
-
-
-
-/**栏目新闻_____**/
-.col_news {
-    width: 100%;
-    min-height: 500px;
-    float: right;
-}
-
-.col_news .col_news_box {
-    margin-left: 290px;
-}
-
-.col_news_head {
-    border-bottom: 1px solid #DBDBDB;
-}
-
-.col_metas .col_title {
-    display: inline-block;
-    height: 48px;
-    line-height: 48px;
-}
-
-/**当前栏目_____**/
-.col_metas .col_title h2 {
-    display: inline-block;
-    font-size: 18px;
-    font-family: "Microsoft yahei";
-    font-weight: normal;
-    color: #f3641c;
-    border-bottom: 3px solid #CBCBCB;
-}
-
-.col_metas .col_path {
-    display: inline-block;
-    float: right;
-    white-space: nowrap;
-    height: 46px;
-    line-height: 46px;
-    color: #666;
-}
-
-/**当前位置_____**/
-.col_metas .col_path a {
-    color: #2F2F2F;
-}
-
-.col_news_con {
-    padding: 5px 0px 10px 0px;
-    margin: 0 0px;
-}
-
-.col_news_list {
-    margin-top: 7px;
-}
-
-
-
-.article {
-    padding-top: 10px;
-}
-
-.article h1.arti_title {
-    line-height: 36px;
-    font-family: "Microsoft YaHei";
-    font-size: 22px;
-    text-align: center;
-    color: #ff9900;
-}
-
-
-
-
-
-.col_news_list {
-    margin-top: 7px;
-}
-
-.footer .news_list li.news .news_title {
     width: 100%;
     text-align: center;
+    font-size: 14px;
+    font-weight: 400;
 }
 
-.footer .news_list li.news .news_title a {
-    color: #fff;
-    font-size:14px
+.epilog{
+    height: 40px; 
+    line-height: 40px; 
+    text-align: center; 
+    font-weight: 800;
+    background-color: white;
+
 }

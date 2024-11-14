@@ -20,7 +20,7 @@
     z-index: 999;
     font: 900 80px '';
     color: #fff;
-    background-image: url(img/jiantou.png);
+    background-image: url(https://s21.ax1x.com/2024/11/14/pAgX1UA.png);
     background-size: cover;
 
 }
@@ -54,7 +54,7 @@
     transition: transform .8s ease-in-out;
 }
 
-.card-time {
+.card-name {
     padding-top: 10%;
     width: 45%;
     font-size: 35px;

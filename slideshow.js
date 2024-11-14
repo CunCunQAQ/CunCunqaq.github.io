@@ -13,8 +13,6 @@
               // 根据偏移量设置卡片垂直偏移效果
               slide.style.transform = `translateY(${offset * 100}%)`;
           });
-          // 调用旋转时钟表盘函数
-          clockRotate(offset * 60);
       }
       // 向后切换卡片
       function slideToNext() {
@@ -22,5 +20,4 @@
           slides.forEach(slide => {
               slide.style.transform = `translateY(${offset * 100}%)`;
           });
-          clockRotate(offset * 60);
       }
