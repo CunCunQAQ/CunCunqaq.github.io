@@ -377,9 +377,14 @@ a:hover {
 
 }
 
+.p1,.p2,.p3,.p4{
+    width: 40%;
+    height: 45%;
+}
+
 .board .p1{
     position: absolute;
-    top: 10%;
+    top: 8%;
     left: 10%;
 
 
@@ -387,7 +392,7 @@ a:hover {
 
 .board .p2{
     position: absolute;
-    top: 10%;
+    top: 8%;
     right: 7%;
 
 
@@ -395,7 +400,7 @@ a:hover {
 
 .board .p3{
     position: absolute;
-    bottom: 5%;
+    bottom: 1cqh;
     left: 10%;
 
 
@@ -403,15 +408,16 @@ a:hover {
 
 .board .p4{
     position: absolute;
-    bottom: 5%;
+    bottom: 1%;
     right: 7%;
 }
 
 
 .board img{
     border-radius: 15px;
-    height: 200px;
-    width: 400px;
+    height: 90%;
+    width:100%;
+    margin: auto;
 }
 
 .board a{
